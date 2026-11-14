@@ -40,6 +40,20 @@
 <main class="layout">
   <div class="editor">
 
+    <div class="card library">
+      <div class="lib-main">
+        <select class="select" id="libSelect" aria-label="Saved signatures"></select>
+      </div>
+      <div class="lib-actions">
+        <button class="ib" type="button" id="libNew" title="New signature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></button>
+        <button class="ib" type="button" id="libDup" title="Duplicate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></button>
+        <button class="ib" type="button" id="libImport" title="Import settings file"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V4m0 11-4-4m4 4 4-4M5 20h14"/></svg></button>
+        <button class="ib" type="button" id="libExport" title="Export settings file"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0-11 4 4m-4-4L8 8M5 20h14"/></svg></button>
+        <button class="ib" type="button" id="libDelete" title="Delete"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M10 11v6M14 11v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4h6v3"/></svg></button>
+        <input type="file" id="libFile" accept=".json,application/json" hidden>
+      </div>
+    </div>
+
     <details class="card section" open>
       <summary><span class="step">1</span><h2>Template</h2><span class="hint" id="tplHint"></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="section-body"><div class="templates" id="templates"></div></div>
@@ -48,36 +62,63 @@
     <details class="card section" open>
       <summary><span class="step">2</span><h2>Your details</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="section-body">
-        <label class="field"><span>Full name</span><input class="input" data-k="name" placeholder="Alex Morgan" autocomplete="name"></label>
+        <div class="grid-name">
+          <label class="field"><span>Full name</span><input class="input" data-k="name" placeholder="Alex Morgan" autocomplete="name"></label>
+          <label class="field"><span>Pronouns</span><input class="input" data-k="pronouns" placeholder="she/her"></label>
+        </div>
         <div class="grid-2">
           <label class="field"><span>Job title</span><input class="input" data-k="title" placeholder="Product Designer" autocomplete="organization-title"></label>
           <label class="field"><span>Company</span><input class="input" data-k="company" placeholder="Acme Inc." autocomplete="organization"></label>
         </div>
         <div class="grid-2">
-          <label class="field"><span>Phone</span><input class="input" data-k="phone" placeholder="+1 555 010 2030" autocomplete="tel"></label>
+          <label class="field"><span>Phone</span><input class="input" data-k="phone" placeholder="+91 98xxx xxxxx" autocomplete="tel"></label>
           <label class="field"><span>Email</span><input class="input" data-k="email" placeholder="you@company.com" autocomplete="email"></label>
         </div>
         <div class="grid-2">
           <label class="field"><span>Website</span><input class="input" data-k="website" placeholder="company.com" autocomplete="url"></label>
-          <label class="field"><span>Location</span><input class="input" data-k="location" placeholder="San Francisco, CA"></label>
+          <label class="field"><span>City</span><input class="input" data-k="location" placeholder="San Francisco, CA"></label>
         </div>
-        <label class="field"><span>Tagline <em style="font-style:normal;color:var(--faint);font-weight:500">· optional</em></span><input class="input" data-k="tagline" placeholder="Building tools people love."></label>
+        <label class="field"><span>Address</span><input class="input" data-k="address" placeholder="500 Market Street, Suite 200, San Francisco, CA 94105" autocomplete="street-address"></label>
+        <label class="field"><span>Tagline</span><input class="input" data-k="tagline" placeholder="Building tools people love."></label>
+        <label class="field"><span>Disclaimer</span><textarea class="input area" data-k="disclaimer" rows="2" placeholder="This email and any attachments are confidential and intended only for the named recipient."></textarea></label>
       </div>
     </details>
 
     <details class="card section" open>
       <summary><span class="step">3</span><h2>Photo or logo</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="section-body">
-        <div class="photo-row">
-          <div class="photo-thumb" id="photoThumb"></div>
-          <label class="field"><span>Image link</span><input class="input" data-k="photo" placeholder="https://…/photo.png" inputmode="url"></label>
+        <label class="drop" id="drop">
+          <input type="file" id="photoFile" accept="image/png,image/jpeg,image/webp,image/svg+xml,image/gif" hidden>
+          <div class="drop-thumb" id="photoThumb"></div>
+          <div class="drop-text">
+            <b id="dropTitle">Upload a photo or logo</b>
+            <span id="dropSub">Drop an image here or click to browse · PNG, JPG, SVG, WebP</span>
+          </div>
+        </label>
+        <div class="enhance" id="enhance" hidden>
+          <div class="enhance-row">
+            <label class="switch"><input type="checkbox" id="optTrim" checked><i></i>Trim empty edges</label>
+            <label class="switch"><input type="checkbox" id="optBg"><i></i>Remove plain background</label>
+          </div>
+          <div class="field"><span>Framing</span><div class="seg full" id="fitSeg"><button data-v="cover">Fill the frame</button><button data-v="contain">Show whole image</button></div></div>
+          <div class="enhance-meta" id="enhanceMeta"></div>
         </div>
+        <div class="notice" id="gmailNotice" hidden>
+          <div class="notice-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg><b>Using Gmail? One extra step</b></div>
+          <p>Your image is embedded, which works in Apple Mail and Outlook. Gmail removes embedded images, so let Gmail host it once:</p>
+          <ol>
+            <li><button class="link-btn" type="button" id="dlLogo">Download your enhanced image</button>.</li>
+            <li>In Gmail's signature box, click <b>Insert image</b> → <b>Upload</b> and choose that file.</li>
+            <li>Right-click the image in Gmail → <b>Copy image address</b>.</li>
+            <li>Paste it into <b>Image link</b> below, copy your signature again and paste it over the old one.</li>
+          </ol>
+        </div>
+        <label class="field"><span>Image link</span><input class="input" data-k="photo" id="photoLink" placeholder="https://…/photo.png" inputmode="url" spellcheck="false"></label>
         <div class="inline-actions">
           <button class="mini" type="button" id="ghToggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Use GitHub avatar</button>
-          <button class="mini" type="button" id="photoClear">No image</button>
+          <button class="mini" type="button" id="photoClear">Remove image</button>
         </div>
         <div class="gh-row" id="ghRow"><input class="input" id="ghUser" placeholder="GitHub username"><button class="btn" type="button" id="ghApply">Apply</button></div>
-        <small class="field" style="color:var(--muted);font-size:12px;line-height:1.5">Email apps only show images from a public link. Use your GitHub avatar, or a PNG/JPG link from your website, LinkedIn or any public image host.</small>
         <div class="grid-2">
           <div class="field"><span>Shape</span><div class="seg full" id="shapeSeg"><button data-v="circle">Circle</button><button data-v="rounded">Rounded</button><button data-v="square">Square</button></div></div>
           <div class="field"><span>Size</span><div class="range"><input type="range" min="40" max="96" step="4" data-k="photoSize"><output id="photoSizeOut"></output></div></div>
@@ -94,8 +135,20 @@
       </div>
     </details>
 
+    <details class="card section">
+      <summary><span class="step">5</span><h2>Button</h2><span class="hint" id="ctaHint"></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="section-body">
+        <label class="switch"><input type="checkbox" id="ctaOn"><i></i>Show a call-to-action button</label>
+        <div class="grid-2">
+          <label class="field"><span>Button text</span><input class="input" data-k="ctaLabel" placeholder="Book a call"></label>
+          <label class="field"><span>Button link</span><input class="input" data-k="ctaUrl" placeholder="calendly.com/you" inputmode="url" spellcheck="false"></label>
+        </div>
+        <div class="field"><span>Style</span><div class="seg full" id="ctaStyleSeg"><button data-v="filled">Filled</button><button data-v="outline">Outline</button><button data-v="link">Text link</button></div></div>
+      </div>
+    </details>
+
     <details class="card section" open>
-      <summary><span class="step">5</span><h2>Style</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <summary><span class="step">6</span><h2>Style</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
       <div class="section-body">
         <div class="field"><span>Accent colour</span><div class="swatches" id="accentSw"></div></div>
         <div class="grid-2">
@@ -107,10 +160,6 @@
         <div class="grid-2">
           <div class="field"><span>Icon size</span><div class="seg full" id="iconSizeSeg"><button data-v="16">16</button><button data-v="20">20</button><button data-v="24">24</button></div></div>
           <div class="field"><span>Icon spacing</span><div class="range"><input type="range" min="4" max="16" step="1" data-k="iconGap"><output id="iconGapOut"></output></div></div>
-        </div>
-        <div class="inline-actions" style="margin-top:4px">
-          <button class="mini" type="button" id="resetExample">Load example</button>
-          <button class="mini" type="button" id="startBlank">Start blank</button>
         </div>
       </div>
     </details>
@@ -126,14 +175,15 @@
       <div class="stage" id="stage">
         <div class="mail">
           <div class="mail-head"><span class="lights"><i></i><i></i><i></i></span><span class="mail-title">New Message</span></div>
-          <div class="mail-body">Hi Sarah,<br><br>Thank you for your time today. I've shared the project files and the next steps we discussed.<br><br>Best regards,
+          <div class="mail-body">Hi Arpita,<br><br>Thank you for your time today. I've shared the project files and the next steps we discussed.<br><br>Best regards,
             <div class="mail-sig" id="sig"></div>
           </div>
         </div>
       </div>
       <div class="actions">
         <button class="btn primary" id="copySig" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg><span>Copy signature</span></button>
-        <button class="btn" id="copyHtml" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 4l-4 16"/></svg>HTML</button>
+        <button class="btn" id="copyText" type="button" title="Copy a plain-text version"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14M5 12h14M5 18h9"/></svg>Text</button>
+        <button class="btn" id="copyHtml" type="button" title="Copy the HTML code"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 4l-4 16"/></svg>HTML</button>
         <button class="btn" id="download" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0 4-4m-4 4-4-4M5 20h14"/></svg>Download</button>
         <div class="meter" title="Gmail allows up to 10,000 characters"><span id="charCount"></span><div class="meter-bar"><i id="charBar"></i></div></div>
       </div>

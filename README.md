@@ -31,7 +31,7 @@ A clean, lightweight HTML email signature for **Kishan Pratap Singh**, Founder o
 ## Structure
 
 ```
-email-signature/
+Email-Signature/
 ├── signature.html        # The signature markup
 └── assets/
     ├── emblem.png        # Next Builder emblem (192 × 192)

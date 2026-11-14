@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signature Studio — Free professional email signature generator</title>
+<meta name="description" content="Design a clean, professional email signature in minutes. 50 platform icons, 4 templates, works in Gmail, Apple Mail and Outlook. Free and open source.">
+<meta property="og:title" content="Signature Studio by Next Builder">
+<meta property="og:description" content="Design a clean, professional email signature in minutes. Free and open source.">
+<meta property="og:image" content="https://nextbuilder.github.io/Email-Signature/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F4F5F7">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app/studio.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="./">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17c2.5-6 5-9 7-9s1 6 3 6 2-3 3-3 1.5 2 3 2"/><path d="M4 21h16"/></svg></span>
+      <span class="brand-name">Signature Studio</span>
+    </a>
+    <span class="brand-by">by <a href="https://youtube.com/@NextBuilderIO" target="_blank" rel="noopener">Next Builder</a></span>
+    <span class="spacer"></span>
+    <a class="top-link" href="https://mail.google.com/mail/u/0/#settings/general" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="m3 7 9 6 9-6"/></svg><span>Gmail settings</span></a>
+    <a class="top-link" href="https://github.com/NextBuilder/Email-Signature" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg><span>GitHub</span></a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">Free · Open source · No sign-up</div>
+  <h1>A professional email signature,<br>ready in two minutes.</h1>
+  <p>Pick a template, add your details and links, then copy it straight into Gmail, Apple Mail or Outlook. It looks sharp on laptops, tablets and phones.</p>
+</section>
+
+<main class="layout">
+  <div class="editor">
+
+    <details class="card section" open>
+      <summary><span class="step">1</span><h2>Template</h2><span class="hint" id="tplHint"></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="section-body"><div class="templates" id="templates"></div></div>
+    </details>
+
+    <details class="card section" open>
+      <summary><span class="step">2</span><h2>Your details</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="section-body">
+        <label class="field"><span>Full name</span><input class="input" data-k="name" placeholder="Alex Morgan" autocomplete="name"></label>
+        <div class="grid-2">
+          <label class="field"><span>Job title</span><input class="input" data-k="title" placeholder="Product Designer" autocomplete="organization-title"></label>
+          <label class="field"><span>Company</span><input class="input" data-k="company" placeholder="Acme Inc." autocomplete="organization"></label>
+        </div>
+        <div class="grid-2">
+          <label class="field"><span>Phone</span><input class="input" data-k="phone" placeholder="+1 555 010 2030" autocomplete="tel"></label>
+          <label class="field"><span>Email</span><input class="input" data-k="email" placeholder="you@company.com" autocomplete="email"></label>
+        </div>
+        <div class="grid-2">
+          <label class="field"><span>Website</span><input class="input" data-k="website" placeholder="company.com" autocomplete="url"></label>
+          <label class="field"><span>Location</span><input class="input" data-k="location" placeholder="San Francisco, CA"></label>
+        </div>
+        <label class="field"><span>Tagline <em style="font-style:normal;color:var(--faint);font-weight:500">· optional</em></span><input class="input" data-k="tagline" placeholder="Building tools people love."></label>
+      </div>
+    </details>
+
+    <details class="card section" open>
+      <summary><span class="step">3</span><h2>Photo or logo</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="section-body">
+        <div class="photo-row">
+          <div class="photo-thumb" id="photoThumb"></div>
+          <label class="field"><span>Image link</span><input class="input" data-k="photo" placeholder="https://…/photo.png" inputmode="url"></label>
+        </div>
+        <div class="inline-actions">
+          <button class="mini" type="button" id="ghToggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>Use GitHub avatar</button>
+          <button class="mini" type="button" id="photoClear">No image</button>
+        </div>
+        <div class="gh-row" id="ghRow"><input class="input" id="ghUser" placeholder="GitHub username"><button class="btn" type="button" id="ghApply">Apply</button></div>
+        <small class="field" style="color:var(--muted);font-size:12px;line-height:1.5">Email apps only show images from a public link. Use your GitHub avatar, or a PNG/JPG link from your website, LinkedIn or any public image host.</small>
+        <div class="grid-2">
+          <div class="field"><span>Shape</span><div class="seg full" id="shapeSeg"><button data-v="circle">Circle</button><button data-v="rounded">Rounded</button><button data-v="square">Square</button></div></div>
+          <div class="field"><span>Size</span><div class="range"><input type="range" min="40" max="96" step="4" data-k="photoSize"><output id="photoSizeOut"></output></div></div>
+        </div>
+      </div>
+    </details>
+
+    <details class="card section" open>
+      <summary><span class="step">4</span><h2>Links</h2><span class="hint" id="linkCount"></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="section-body">
+        <div class="links" id="links"></div>
+        <div class="picker-head"><input class="input" id="pickSearch" placeholder="Search 50 platforms…"></div>
+        <div class="groups" id="groups"></div>
+      </div>
+    </details>
+
+    <details class="card section" open>
+      <summary><span class="step">5</span><h2>Style</h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+      <div class="section-body">
+        <div class="field"><span>Accent colour</span><div class="swatches" id="accentSw"></div></div>
+        <div class="grid-2">
+          <label class="field"><span>Font</span><select class="select" data-k="font" id="fontSel"></select></label>
+          <div class="field"><span>Name size</span><div class="seg full" id="nameSeg"><button data-v="15">S</button><button data-v="17">M</button><button data-v="20">L</button></div></div>
+        </div>
+        <div class="field"><span>Icon style</span><div class="seg full" id="iconStyleSeg"><button data-v="outline">Outline</button><button data-v="solid">Solid</button><button data-v="badge">Badge</button></div></div>
+        <div class="field"><span>Icon colour</span><div class="swatches" id="iconSw"></div><small>Graphite and brand colours stay readable in light and dark inboxes.</small></div>
+        <div class="grid-2">
+          <div class="field"><span>Icon size</span><div class="seg full" id="iconSizeSeg"><button data-v="16">16</button><button data-v="20">20</button><button data-v="24">24</button></div></div>
+          <div class="field"><span>Icon spacing</span><div class="range"><input type="range" min="4" max="16" step="1" data-k="iconGap"><output id="iconGapOut"></output></div></div>
+        </div>
+        <div class="inline-actions" style="margin-top:4px">
+          <button class="mini" type="button" id="resetExample">Load example</button>
+          <button class="mini" type="button" id="startBlank">Start blank</button>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <aside class="preview">
+    <div class="card stage-card">
+      <div class="stage-bar">
+        <div class="seg" id="themeSeg"><button data-v="light" class="on">Light</button><button data-v="dark">Dark</button></div>
+        <div class="seg" id="deviceSeg"><button data-v="desktop" class="on">Desktop</button><button data-v="mobile">Mobile</button></div>
+        <span class="spacer"></span>
+      </div>
+      <div class="stage" id="stage">
+        <div class="mail">
+          <div class="mail-head"><span class="mail-dot"></span><span class="mail-dot"></span><span class="mail-dot"></span><span class="mail-subj">New message</span></div>
+          <div class="mail-body">Hi there,<br><br>Thanks for your time today — looking forward to working together.<br><br>Best regards,
+            <div class="mail-sig" id="sig"></div>
+          </div>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn primary" id="copySig" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg><span>Copy signature</span></button>
+        <button class="btn" id="copyHtml" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 4l-4 16"/></svg>HTML</button>
+        <button class="btn" id="download" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0 4-4m-4 4-4-4M5 20h14"/></svg>Download</button>
+        <div class="meter" title="Gmail allows up to 10,000 characters"><span id="charCount"></span><div class="meter-bar"><i id="charBar"></i></div></div>
+      </div>
+    </div>
+
+    <div class="card guide">
+      <div class="tabs" id="guideTabs">
+        <button data-v="gmail" class="on">Gmail</button>
+        <button data-v="mobile">Gmail app</button>
+        <button data-v="apple">Apple Mail</button>
+        <button data-v="outlook">Outlook</button>
+      </div>
+      <div class="guide-body" id="guideBody"></div>
+    </div>
+  </aside>
+</main>
+
+<footer class="foot">
+  <span>Signature Studio is free and open source. Your details never leave your browser.</span>
+  <span>Made by <a href="https://github.com/NextBuilder" target="_blank" rel="noopener">Next Builder</a></span>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="app/platforms.js"></script>
+<script src="app/studio.js"></script>
+</body>
+</html>

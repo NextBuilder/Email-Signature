@@ -32,9 +32,15 @@
 </header>
 
 <section class="hero">
-  <div class="eyebrow">Free · Open source · No sign-up</div>
-  <h1>A professional email signature,<br>ready in two minutes.</h1>
-  <p>Pick a template, add your details and links, then copy it straight into Gmail, Apple Mail or Outlook. It looks sharp on laptops, tablets and phones.</p>
+  <div class="eyebrow">Email signature generator</div>
+  <h1>Professional email signatures, <br>built in minutes.</h1>
+  <p>Design a signature that represents you on every email. Choose a layout, add your details and links, and install it in Gmail, Apple Mail or Outlook in seconds.</p>
+  <ul class="facts">
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>4 templates</li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>50 platforms</li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>Free and open source</li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>Private, runs in your browser</li>
+  </ul>
 </section>
 
 <main class="layout">
@@ -119,14 +125,18 @@
   <aside class="preview">
     <div class="card stage-card">
       <div class="stage-bar">
+        <span class="live"><i></i>Live preview</span>
+        <span class="spacer"></span>
         <div class="seg" id="themeSeg"><button data-v="light" class="on">Light</button><button data-v="dark">Dark</button></div>
         <div class="seg" id="deviceSeg"><button data-v="desktop" class="on">Desktop</button><button data-v="mobile">Mobile</button></div>
-        <span class="spacer"></span>
       </div>
       <div class="stage" id="stage">
         <div class="mail">
-          <div class="mail-head"><span class="mail-dot"></span><span class="mail-dot"></span><span class="mail-dot"></span><span class="mail-subj">New message</span></div>
-          <div class="mail-body">Hi there,<br><br>Thanks for your time today — looking forward to working together.<br><br>Best regards,
+          <div class="mail-head">
+            <div class="mail-row"><span>To</span>sarah.chen@company.com</div>
+            <div class="mail-row"><span>Subject</span>Project update and next steps</div>
+          </div>
+          <div class="mail-body">Hi Sarah,<br><br>Thank you for your time today. I've shared the project files and the next steps we discussed.<br><br>Best regards,
             <div class="mail-sig" id="sig"></div>
           </div>
         </div>
